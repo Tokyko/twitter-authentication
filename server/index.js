@@ -12,9 +12,8 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser"); // parse cookie header
 
 // connect to mongodb
-mongoose.connect(keys.MONGODB_URI, () => {
-  console.log("connected to mongo db");
-});
+mongoose.connect(keys.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true }).
+then(() => console.log('DB connected!'));
 
 app.use(
   cookieSession({

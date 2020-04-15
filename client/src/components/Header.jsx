@@ -27,7 +27,7 @@ export default class Header extends Component {
     // Authenticate using via passport api in the backend
     // Open Twitter login page
     // Upon successful login, a cookie session will be stored in the client
-    window.open("http://localhost:4000/auth/twitter", "_self");
+    window.open("http://localhost:4000/auth/twitch", "_self");
   };
 
   _handleLogoutClick = () => {

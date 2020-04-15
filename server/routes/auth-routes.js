@@ -28,16 +28,16 @@ router.get("/logout", (req, res) => {
   res.redirect(CLIENT_HOME_PAGE_URL);
 });
 
-// auth with twitter
-router.get("/twitter", passport.authenticate("twitter"));
+// auth with twitch
+router.get("/twitch", passport.authenticate('twitch', { scope: 'user_read' }));
 
-// redirect to home page after successfully login via twitter
-router.get(
-  "/twitter/redirect",
-  passport.authenticate("twitter", {
+// redirect to home page after successfully login via twitch
+router.get("/twitch/callback",
+  passport.authenticate("twitch", {
     successRedirect: CLIENT_HOME_PAGE_URL,
     failureRedirect: "/auth/login/failed"
   })
 );
+
 
 module.exports = router;
